@@ -1,6 +1,7 @@
 //UC1 - 4 - GENERATE SHIFTS
 var fulltime = 8;
 var parttime = 4;
+var absent = 0;
 var hourlyWage = 20;
 // function generateShift(){
 //     let shift = Math.floor(Math.random()*10%3)
@@ -24,17 +25,11 @@ function generateShift() {
     console.log(shift);
     switch (shift) {
         case 0:
-            return fulltime * hourlyWage;
-            // console.log("Full Time Shift")
-            break;
+            return (fulltime * hourlyWage);
         case 1:
-            return parttime * hourlyWage;
-            // console.log("Part Time Shift")
-            break;
-        case 2:
-            return 0;
-            // console.log("No Shift")
-            break;
+            return (parttime * hourlyWage);
+        default:
+            return (absent * hourlyWage);
     }
 }
 console.log("Today's wage: " + generateShift());
