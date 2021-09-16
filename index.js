@@ -1,8 +1,11 @@
-//UC1 - 4 - GENERATE SHIFTS
+//UC1 - GENERATE SHIFTS
 var fulltime = 8;
 var parttime = 4;
 var absent = 0;
 var hourlyWage = 20;
+var daysInMonth = 30;
+var monthWageRecord = [];
+var totalMonthWage = 0;
 // function generateShift(){
 //     let shift = Math.floor(Math.random()*10%3)
 //     console.log(shift)
@@ -19,10 +22,9 @@ var hourlyWage = 20;
 //     }
 // }
 // generateShift()
-//UC5 - GENERATE DAILY WAGE
-function generateShift() {
+//UC2 - GENERATE DAILY WAGE
+function generateDailyWage() {
     var shift = Math.floor(Math.random() * 10 % 3);
-    console.log(shift);
     switch (shift) {
         case 0:
             return (fulltime * hourlyWage);
@@ -32,4 +34,15 @@ function generateShift() {
             return (absent * hourlyWage);
     }
 }
-console.log("Today's wage: " + generateShift());
+console.log("Today's wage: " + generateDailyWage());
+//UC3 - GENERATE MONTHLY WAGE
+function generateMonthlyWage() {
+    for (var i = 0; i < daysInMonth; i++) {
+        var dailyWage = generateDailyWage();
+        monthWageRecord.push(dailyWage);
+        totalMonthWage += dailyWage;
+    }
+    console.log(monthWageRecord);
+    return totalMonthWage;
+}
+console.log("The Monthly Wage: " + generateMonthlyWage());
