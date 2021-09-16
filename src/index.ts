@@ -58,34 +58,82 @@ const MaxHours: number = 160
 // console.log(`The Monthly Wage: ${generateMonthlyWage()}`)
 
 //UC4 - MONTHLY WAGE WITH RESTRICTED HOURS
-function restrictedMonthlyWage():number{
-    let totalRestrictedMonthWage: number = 0
-    let monthRestrictedWageRecord: number[] = []      //array containing numbers
-    let daysWorked: number = 0  
-    let hoursWorked: number = 0
-    let dailyWage: number = 0
+// function restrictedMonthlyWage():number{
+//     let totalRestrictedMonthWage: number = 0
+//     let monthRestrictedWageRecord: number[] = []      //array containing numbers
+//     let daysWorked: number = 0  
+//     let hoursWorked: number = 0
+//     let dailyWage: number = 0
 
-    while(daysWorked<daysInMonth && hoursWorked<MaxHours){
-        let shift = Math.floor(Math.random()*10%3)
-        switch(shift){
-            case 0:
-                hoursWorked += fulltime
-                dailyWage = (fulltime*hourlyWage)
-                break
-            case 1:
-                hoursWorked += parttime
-                dailyWage = (parttime*hourlyWage)
-                break
-            default:
-                dailyWage = (absent*hourlyWage)
-                break
-        }
-        totalRestrictedMonthWage += dailyWage 
-        monthRestrictedWageRecord.push(dailyWage)
-        daysWorked++;
-    }
-    console.log(monthRestrictedWageRecord)
-    console.log(`${hoursWorked}/${MaxHours}`)
-    return totalRestrictedMonthWage
+//     while(daysWorked<daysInMonth && hoursWorked<MaxHours){
+//         let shift = Math.floor(Math.random()*10%3)
+//         switch(shift){
+//             case 0:
+//                 hoursWorked += fulltime
+//                 dailyWage = (fulltime*hourlyWage)
+//                 break
+//             case 1:
+//                 hoursWorked += parttime
+//                 dailyWage = (parttime*hourlyWage)
+//                 break
+//             default:
+//                 dailyWage = (absent*hourlyWage)
+//                 break
+//         }
+//         totalRestrictedMonthWage += dailyWage 
+//         monthRestrictedWageRecord.push(dailyWage)
+//         daysWorked++;
+//     }
+//     console.log(monthRestrictedWageRecord)
+//     console.log(`${hoursWorked}/${MaxHours}`)
+//     return totalRestrictedMonthWage
+// }
+// console.log(`The Monthly Wage: ${restrictedMonthlyWage()}`)
+
+
+//UC5 - CLASSES
+interface EmployeeInterface{
+
 }
-console.log(`The Monthly Wage: ${restrictedMonthlyWage()}`)
+
+class Employee{
+    name: string
+    constructor(name: string){
+        this.name = name
+        console.log(`Welcome to Employee Wage: ${this.name}`)
+    }
+
+    restrictedMonthlyWage():void{
+        let totalRestrictedMonthWage: number = 0
+        let monthRestrictedWageRecord: number[] = []      //array containing numbers
+        let daysWorked: number = 0  
+        let hoursWorked: number = 0
+        let dailyWage: number = 0
+    
+        while(daysWorked<daysInMonth && hoursWorked<MaxHours){
+            let shift = Math.floor(Math.random()*10%3)
+            switch(shift){
+                case 0:
+                    hoursWorked += fulltime
+                    dailyWage = (fulltime*hourlyWage)
+                    break
+                case 1:
+                    hoursWorked += parttime
+                    dailyWage = (parttime*hourlyWage)
+                    break
+                default:
+                    dailyWage = (absent*hourlyWage)
+                    break
+            }
+            totalRestrictedMonthWage += dailyWage 
+            monthRestrictedWageRecord.push(dailyWage)
+            daysWorked++;
+        }
+        console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`)
+        console.log(`${this.name}'s Hours Completed: ${hoursWorked}/${MaxHours}`)
+        console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`)
+    }
+
+}
+const emp = new Employee('Aditya')
+emp.restrictedMonthlyWage()
