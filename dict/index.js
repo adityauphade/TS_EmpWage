@@ -32,13 +32,21 @@ class Employee {
                     dailyWage = (absent * hourlyWage);
                     break;
             }
-            totalRestrictedMonthWage += dailyWage;
+            // totalRestrictedMonthWage += dailyWage 
             monthRestrictedWageRecord.push(dailyWage);
             daysWorked++;
         }
-        console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`);
+        //UC6 ARRAY TASKS
+        //FOREACH
+        // console.log("Monthly Wage for ",this.name)
+        // monthRestrictedWageRecord.forEach((e, index)=> console.log(`${index+1} => ${e}`))
+        // console.log(`${this.name}'s Hours Completed: ${hoursWorked}/${MaxHours}`)
+        //MAP
+        console.log("Monthly Wage for ", this.name);
+        monthRestrictedWageRecord.map((e, index) => console.log(`${index + 1} => ${e}`));
         console.log(`${this.name}'s Hours Completed: ${hoursWorked}/${MaxHours}`);
-        console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`);
+        // console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`)
+        // console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`)
     }
 }
 const emp = new Employee('Aditya');
