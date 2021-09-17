@@ -6,6 +6,7 @@ const absent = 0;
 const hourlyWage = 20;
 const daysInMonth = 30;
 const MaxHours = 160;
+let empWageMap = {};
 class Employee {
     constructor(name) {
         this.name = name;
@@ -72,6 +73,16 @@ class Employee {
             console.log(`Total number of days worked => ${days_worked}`);
         }
         totalDays();
+        //HASHMAP
+        function storeInMap() {
+            let totalWage = 0;
+            monthRestrictedWageRecord.forEach((e, index) => {
+                totalWage += e;
+                empWageMap[`Day ${index + 1}`] = [e, totalWage];
+            });
+            console.log(empWageMap);
+        }
+        storeInMap();
         // console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`)
         // console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`)
     }

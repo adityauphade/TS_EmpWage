@@ -5,6 +5,7 @@ const absent: number = 0
 const hourlyWage: number = 20
 const daysInMonth: number = 30
 const MaxHours: number = 160
+let empWageMap:any = {}
 
 
 // function generateShift(){
@@ -169,6 +170,17 @@ class Employee{
             console.log(`Total number of days worked => ${days_worked}`);
         }
         totalDays()
+
+        //HASHMAP
+        function storeInMap(): void{
+            let totalWage = 0;
+            monthRestrictedWageRecord.forEach((e, index) => {
+                totalWage += e
+                empWageMap[`Day ${index+1}`] = [e, totalWage]
+            })
+            console.log(empWageMap)
+        }
+        storeInMap()
 
         // console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`)
         // console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`)
