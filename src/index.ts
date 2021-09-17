@@ -12,7 +12,7 @@ interface empWageObjectModel{
     WageEarned: number
 }
 // let empWageObject:empWageObjectModel = {}
-var empWageObjectArray: any = []
+var empWageObjectArray:object[] = []
 
 
 // function generateShift(){
