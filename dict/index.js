@@ -7,6 +7,8 @@ const hourlyWage = 20;
 const daysInMonth = 30;
 const MaxHours = 160;
 let empWageMap = {};
+// let empWageObject:empWageObjectModel = {}
+var empWageObjectArray = [];
 class Employee {
     constructor(name) {
         this.name = name;
@@ -83,6 +85,20 @@ class Employee {
             console.log(empWageMap);
         }
         storeInMap();
+        //OBJECT
+        function storeInObject() {
+            monthRestrictedWageRecord.forEach((e, index) => {
+                let currentDay = index + 1;
+                let currentWage = e;
+                let empWageObject = {
+                    Days: currentDay,
+                    WageEarned: currentWage
+                };
+                empWageObjectArray.push(empWageObject);
+            });
+            console.log(empWageObjectArray);
+        }
+        storeInObject();
         // console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`)
         // console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`)
     }

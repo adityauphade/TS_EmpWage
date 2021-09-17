@@ -7,6 +7,13 @@ const daysInMonth: number = 30
 const MaxHours: number = 160
 let empWageMap:any = {}
 
+interface empWageObjectModel{
+    Days: number
+    WageEarned: number
+}
+// let empWageObject:empWageObjectModel = {}
+var empWageObjectArray: any = []
+
 
 // function generateShift(){
 //     let shift = Math.floor(Math.random()*10%3)
@@ -181,6 +188,21 @@ class Employee{
             console.log(empWageMap)
         }
         storeInMap()
+
+        //OBJECT
+        function storeInObject(){
+            monthRestrictedWageRecord.forEach((e, index) => {
+                let currentDay: number = index + 1
+                let currentWage: number = e
+                let empWageObject:empWageObjectModel = {
+                    Days: currentDay,
+                    WageEarned: currentWage
+                }
+                empWageObjectArray.push(empWageObject)
+            })
+            console.log(empWageObjectArray)
+        }
+        storeInObject()
 
         // console.log(`${this.name}'s Monthly Record: ${monthRestrictedWageRecord}`)
         // console.log(`${this.name}'s Monthly Wage is: ${totalRestrictedMonthWage}`)
